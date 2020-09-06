@@ -3,11 +3,11 @@ package com.sandeep.stock.dbservice.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name="quotes", catalog = "test")
-public class Quote  {
+@Table(name = "quotes", catalog = "test")
+public class Quote {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Integer id;
 
@@ -16,6 +16,14 @@ public class Quote  {
 
     @Column(name = "quote")
     private String quote;
+
+    public Quote() {
+    }
+
+    public Quote(String userName, String quote) {
+        this.userName = userName;
+        this.quote = quote;
+    }
 
     public Integer getId() {
         return id;
@@ -39,12 +47,5 @@ public class Quote  {
 
     public void setQuote(String quote) {
         this.quote = quote;
-    }
-
-    public Quote() {}
-
-    public Quote(String userName, String quote) {
-        this.userName=userName;
-        this.quote=quote;
     }
 }
